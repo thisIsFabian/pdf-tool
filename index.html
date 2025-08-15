@@ -9,11 +9,14 @@
     <link href="#" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/@cantoo/pdf-lib@2.4.2/dist/pdf-lib.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main.js" type="module"></script>
 </head>
 <body>
 
-
+    <div id="drop_zone" style="height: 200px; border: 1px solid gray;">
+        <input id="file_input" type="file" accept="application/pdf" multiple>
+        <div>Drop files here</div>
+    </div>
 
 </body>
 </html>
