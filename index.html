@@ -6,16 +6,39 @@
 
     <title>PDF Tool</title>
 
-    <link href="#" rel="stylesheet">
+    <link href="style/css/main.css" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/@cantoo/pdf-lib@2.4.2/dist/pdf-lib.min.js"></script>
     <script src="js/main.js" type="module"></script>
 </head>
 <body>
 
-    <div id="drop_zone" style="height: 200px; border: 1px solid gray;">
+    <div id="drop_zone_wrapper">
+        <svg viewBox='0 0 100 100' preserveAspectRatio='none'>
+            <rect x="4" y="4" width="92" height="92" rx="5" ry="20" vector-effect='non-scaling-stroke'></rect>
+        </svg>
+        <div id="drop_zone_content">Click or drag files here</div>
         <input id="file_input" type="file" accept="application/pdf" multiple>
-        <div>Drop files here</div>
+    </div>
+
+    <div id="list_wrapper">
+        <div id="document_list" class="list js-list"><div class="list_item is-idle js-item">
+    🍦 Ice cream
+    <div class="drag-handle js-drag-handle">⠿</div>
+  </div>
+  <div class="list_item js-item is-idle" data-index="0" style=""><div class="drag-handle js-drag-handle">⠿</div><span>blatt09-1.pdf</span><input class="pages_input" placeholder="Select pages, e.g.: 1-2, 4-5" title="Select pages, e.g.: 3-5, 8"><a class="delete_item_button" href="#" title="Remove"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="delete_button"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></a></div>
+  <div class="list_item is-idle js-item">
+    🥞 Pancake
+    <div class="drag-handle js-drag-handle">⠿</div>
+  </div>
+  <div class="list_item is-idle js-item">
+    🧇 Waffle
+    <div class="drag-handle js-drag-handle">⠿</div>
+  </div>
+  <div class="list_item is-idle js-item">
+    🍰 Cake
+    <div class="drag-handle js-drag-handle">⠿</div>
+  </div></div>
     </div>
 
 </body>

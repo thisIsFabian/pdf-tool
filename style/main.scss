@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+// fonts
+@font-face {
+    font-family: 'Geist';
+    font-style: normal;
+    font-weight: 100 900;
+    src: url("../../res/fonts/Geist_Sans_wght.woff2") format('woff2');
+}
+
+// colors
+body {
+    --background-color: #fff;
+    --accent-color: #2257E7;
+    --headline-color: #12141f;
+    --text-color: #1c1c23;
+    --secondary-text-color: #84898f;
+    --border-color: #d1d3d6;
+    --error-backoground-color: rgb(255, 208, 208);
+    --error-border-color: #e29f9f;
+}
+
+// general
+html {
+    font-size: 1em;
+}
+
+body {
+    font-family: "Geist", "Arial", sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+#drop_zone_wrapper {
+    position: relative;
+    width: fit-content;
+}
+
+#drop_zone_wrapper svg {
+    display: block;
+    width: 1020px;
+    aspect-ratio: 4/1;
+}
+
+#drop_zone_wrapper rect {
+    position: relative;
+    fill: none;
+    stroke: rgb(174, 174, 187);
+    stroke-width: 2px;
+    stroke-dasharray: 8, 8;
+}
+
+/*#drop_zone_wrapper::before svg:hover rect {
+    stroke: red;
+}*/
+
+/*#drop_zone_wrapper svg:hover rect {
+    //stroke-width: 7px;
+    stroke: rgb(124, 168, 219);
+    //stroke-dasharray: 0, 0;
+    transition: stroke-width 0.3s;
+}*/
+
+#file_input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: transparent;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+}
+
+#drop_zone_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+
+// document list
+
+$list_item_border_radius: 12px;
+
+#list_wrapper {
+    //display: none;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 15px);
+    gap: 12px 0;
+}
+
+.list_item {
+    width: 100%;
+    background: white;
+    padding: 15px;
+    padding-left: 44px;
+    border-radius: $list_item_border_radius;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    will-change: transform;
+    border: 1px solid var(--border-color);
+    column-gap: 15px;
+    box-shadow: 0 1px 2px 0 var(--tw-shadow-color,#0000000d);
+}
+
+.list_item span {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+}
+
+.list_item.is-idle .drag-handle {
+    cursor: grab;
+}
+
+.list_item.is-idle {
+    transition: 0.25s ease transform;
+}
+
+.list_item.is-draggable,
+.list_item.is-draggable .drag-handle {
+    cursor: grabbing;
+}
+
+.list_item.is-draggable {
+    z-index: 10;
+}
+
+.list_item .delete_item_button {
+    display: flex;
+    padding: 4px;
+    align-self: right;
+    color: var(--secondary-text-color);
+    transition: color 90ms ease-in-out;
+}
+.list_item .delete_item_button:hover {
+    color: color-mix(in srgb,var(--secondary-text-color), #000 30%);;
+}
+
+.list_item .pages_input {
+    margin-left: auto;
+    border: 1px solid var(--border-color);
+    font-family: "Geist", "Arial", sans-serif;
+    padding: 4px 9px;
+    border-radius: 6px;
+    width: 190px;
+    font-size: 0.9rem;
+}
+
+.drag-handle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 44px;
+    height: 100%;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: $list_item_border_radius;
+    color: var(--secondary-text-color);
+    user-select: none;
+}
+
+
+
+
+@media only screen and (max-width: 750px) {
+
+.list_item .pages_input {
+    width: 60px;
+}
+
+}
