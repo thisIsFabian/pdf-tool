@@ -1,6 +1,7 @@
 import {updateAllItemsList} from "./draggable_list.js";
+import {PDFDocument} from "https://cdn.jsdelivr.net/npm/@cantoo/pdf-lib@2.4.2/+esm";
 
-let documents = [];
+export let documents = [];
 
 document.getElementById("file_input").addEventListener("change", uploadHandler);
 
@@ -41,7 +42,7 @@ function uploadHandler(e) {
 
             for(const item of file_array) {
                 try {
-                    const pdfDoc = await PDFLib.PDFDocument.load(item[0], {updateMetadata: false});
+                    const pdfDoc = await PDFDocument.load(item[0], {updateMetadata: false});
                     documents.push(pdfDoc);
                     addListItem(item[1], documents.length-1);
                 } catch(err) {
@@ -73,6 +74,7 @@ function addListItem(filename, docIndex) {
     let dragHandle = document.createElement("div");
     dragHandle.classList = "drag-handle js-drag-handle";
     dragHandle.innerHTML = "⠿";
+    dragHandle.title = "Drag";
 
     let pagesInput = document.createElement("input");
     pagesInput.classList = "pages_input";
@@ -109,7 +111,6 @@ function itemInputValidation() {
     }
 
     if(this.onblur) {
-        console.log("test");
         this.addEventListener("input", itemInputValidation);
         this.onblur = null;
     }
