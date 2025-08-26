@@ -95,7 +95,8 @@ function addListItem(filename, docIndex) {
 
 function removeDocumentFromList() {
     let index = this.dataset.index;
-    documents.splice(index, 1);
+    //documents.splice(index, 1);
+    documents[index] = null;
     this.parentNode.remove();
     updateAllItemsList();
 }

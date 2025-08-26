@@ -20,37 +20,28 @@
         </nav>
     </header>
 
-    <div id="drop_zone_wrapper">
-        <svg viewBox='0 0 100 100' preserveAspectRatio='none'>
-            <rect x="4" y="4" width="92" height="92" rx="5" ry="20" vector-effect='non-scaling-stroke'></rect>
-        </svg>
-        <div id="drop_zone_content">Click or drag files here</div>
-        <input id="file_input" type="file" accept="application/pdf" multiple>
-    </div>
+    <main>
 
-    <div id="list_wrapper">
-        <div id="document_list" class="list js-list">
-          <!--<div class="list_item is-idle js-item">
-            item2
-            <div class="drag-handle js-drag-handle">⠿</div>
-          </div>
-          <div class="list_item js-item is-idle" data-index="0" style=""><div class="drag-handle js-drag-handle">⠿</div><span>item1.pdf</span><input class="pages_input" placeholder="Select pages, e.g.: 1-2, 4-5" title="Select pages, e.g.: 3-5, 8"><a class="delete_item_button" href="#" title="Remove"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="delete_button"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></a></div>
-          <div class="list_item is-idle js-item">
-            item3
-            <div class="drag-handle js-drag-handle">⠿</div>
-          </div>
-          <div class="list_item is-idle js-item">
-            item4
-            <div class="drag-handle js-drag-handle">⠿</div>
-          </div>
-          <div class="list_item is-idle js-item">
-            item5
-            <div class="drag-handle js-drag-handle">⠿</div>
-          </div>-->
+        <div id="drop_zone_wrapper">
+            <svg viewBox='0 0 100 100' preserveAspectRatio='none'>
+                <rect x="4" y="4" width="92" height="92" rx="5" ry="20" vector-effect='non-scaling-stroke'></rect>
+            </svg>
+            <div id="drop_zone_content">Click or drag files here</div>
+            <input id="file_input" type="file" accept="application/pdf" multiple>
         </div>
-    </div>
 
-    <button id="download_button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>Download</button>
+        <div id="list_wrapper">
+            <div id="document_list" class="list js-list">
+                
+            </div>
+        </div>
+
+        <button id="download_button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
+            Download
+        </button>
+
+    </main>
 
 </body>
 </html>
