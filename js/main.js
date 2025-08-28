@@ -19,7 +19,7 @@ async function extractPDFpages() {
     let pageCount = newPDF.getPageCount();
     for(let i = 0; i < pageCount; i++) {
 
-        let includedPagesIndices = getIncludedPageIndices(input);
+        let includedPagesIndices = getIncludedPageIndices(input, newPDF);
 
         if(i !== includedPagesIndices[pages_kept]) {
             newPDF.removePage(i - pages_removed);
@@ -39,7 +39,7 @@ async function extractPDFpages() {
         //let input = "1-2, 4, 45-56,34-3,15-16,asd-a";
         let input = item.getElementsByClassName("pages_input")[0].value;
 
-        let includedPagesIndices = getIncludedPageIndices(input);
+        let includedPagesIndices = getIncludedPageIndices(input, sourcePDF);
 
         // remove indices that are too large
         let maxIndex = sourcePDF.getPageCount();
@@ -68,7 +68,7 @@ async function extractPDFpages() {
 
 }
 
-function getIncludedPageIndices(input) {
+function getIncludedPageIndices(input, srcPDF) {
 
     let includedPagesIndices = [];
 
@@ -95,7 +95,7 @@ function getIncludedPageIndices(input) {
         includedPagesIndices.sort((a, b) => a - b);
     } else {
         // include all pages
-        includedPagesIndices = Array.from(Array(sourcePDF.getPageCount()).keys());
+        includedPagesIndices = Array.from(Array(srcPDF.getPageCount()).keys());
     }
 
     return includedPagesIndices;
