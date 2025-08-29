@@ -177,13 +177,11 @@ function openListView() {
     document.getElementById("drop_zone_wrapper").style.display = "none";
     document.getElementById("list_wrapper").style.display = "block";
     document.getElementById("download_button").style.display = "flex";
-    document.getElementById("main_content").style.minHeight = "calc(100vh - 81px)";
 }
 
 function closeListView() {
     document.getElementById("drop_zone_wrapper").style.display = "block";
     document.getElementById("list_wrapper").style.display = "none";
     document.getElementById("download_button").style.display = "none";
-    document.getElementById("main_content").style.minHeight = "100%";
     documents = [];
 }
