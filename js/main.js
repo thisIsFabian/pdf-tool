@@ -57,14 +57,18 @@ async function extractPDFpages() {
     }
 
     // download:
-    let bytes = await newPDF.save();
+    if(newPDF.getPageCount() > 0) {
+        let bytes = await newPDF.save();
 
-    let blob = new Blob([bytes], {type: "application/pdf"});
+        let blob = new Blob([bytes], {type: "application/pdf"});
 
-    let link = document.createElement('a');
-    link.href = window.URL.createObjectURL(blob);
-    link.download = "myFileName.pdf";
-    link.click();
+        let link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = "myFileName.pdf";
+        link.click();
+    } else {
+        //TODO: user feedback
+    }
 
 }
 

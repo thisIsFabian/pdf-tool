@@ -38,6 +38,10 @@ body {
     font-family: $font-family;
     background-color: var(--background-color);
     color: var(--text-color);
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -70,7 +74,7 @@ header nav a {
 #drop_zone_wrapper {
     position: relative;
     width: fit-content;
-    margin: 0 auto;
+    margin: 24px auto 0 auto;
     cursor: pointer;
 }
 
@@ -121,8 +125,9 @@ header nav a {
 }
 
 #main_content {
-    height: 100%;
-    margin-top: 24px;
+    flex-grow: 1;
+    //height: fit-content;
+    //margin-top: 24px;
 }
 
 
@@ -133,7 +138,7 @@ $list_item_border_radius: 12px;
 #list_wrapper {
     display: none;
     width: 50%;
-    margin: 0 auto;
+    margin: 24px auto 0 auto;
 }
 
 .list {
@@ -189,6 +194,7 @@ $list_item_border_radius: 12px;
     align-self: right;
     color: var(--secondary-text-color);
     transition: color 90ms ease-in-out;
+    cursor: pointer;
 }
 .list_item .delete_item_button:hover {
     color: color-mix(in srgb,var(--secondary-text-color), #000 30%);;
@@ -231,7 +237,7 @@ $list_item_border_radius: 12px;
     align-items: center;
     justify-content: center;
     border: 1px solid var(--border-color);
-    column-gap: 12px;
+    column-gap: 8px;
     box-shadow: 0 1px 2px 0 var(--tw-shadow-color,#0000000d);
     cursor: pointer;
 }
@@ -283,7 +289,7 @@ $list_item_border_radius: 12px;
 
 
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 780px) {
 
 .list_item .pages_input {
     width: 60px;

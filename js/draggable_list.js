@@ -15,6 +15,8 @@ let items = []
 
 let prevRect = {}
 
+let scrollAmount = 0;
+
 
 // Helper Functions
 
@@ -125,6 +127,7 @@ function drag(e) {
   draggableItem.style.transform = `translate(0px, ${pointerOffsetY}px)`
 
   updateIdleItemsStateAndPosition()
+  autoScrollOnEdge(clientY)
 }
 
 function updateIdleItemsStateAndPosition() {
@@ -161,6 +164,31 @@ function updateIdleItemsStateAndPosition() {
       item.style.transform = ''
     }
   })
+}
+
+function autoScrollOnEdge(clientY) {
+  const scrollElement = document.getElementsByTagName("html")[0];
+  const containerRect = scrollElement.getBoundingClientRect()
+
+  let scrollEdgeThreshold = 40, scrollSpeed = 10;
+
+  if (clientY < scrollEdgeThreshold) {
+    if(scrollElement.scrollTop > scrollSpeed) {
+      pointerStartY += scrollSpeed;
+      scrollAmount += scrollSpeed;
+      scrollElement.scrollTop -= scrollSpeed;
+    } else {
+      pointerStartY += scrollElement.scrollTop;
+      scrollAmount += scrollElement.scrollTop;
+      scrollElement.scrollTop = 0;
+    }
+  } else if (clientY > (window.innerHeight - scrollEdgeThreshold)) {
+    if(scrollElement.scrollTop < ((containerRect.height - window.innerHeight) - scrollSpeed)) {
+      pointerStartY -= scrollSpeed;
+      scrollAmount -= scrollSpeed;
+      scrollElement.scrollTop += scrollSpeed;
+    }
+  }
 }
 
 
@@ -209,7 +237,7 @@ function applyNewItemsOrder(e) {
     const pointerOffsetY = currentPositionY - pointerStartY
 
     draggableItem.style.transform = `translate(0px, ${
-      pointerOffsetY + yDiff
+      pointerOffsetY + yDiff + scrollAmount
     }px)`
     requestAnimationFrame(() => {
       unsetDraggableItem()
@@ -232,6 +260,7 @@ function unsetDraggableItem() {
   draggableItem.classList.remove('is-draggable')
   draggableItem.classList.add('is-idle')
   draggableItem = null
+  scrollAmount = 0
 }
 
 function unsetItemState() {

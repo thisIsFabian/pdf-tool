@@ -118,7 +118,7 @@ function addListItem(filename, docIndex) {
     let deleteButton = document.createElement("a");
     deleteButton.classList = "delete_item_button";
     deleteButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="delete_button"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>';
-    deleteButton.href = "#";
+    deleteButton.tabIndex = 0;
     deleteButton.onclick = removeDocumentFromList;
     deleteButton.title = "Remove";
 
@@ -177,13 +177,13 @@ function openListView() {
     document.getElementById("drop_zone_wrapper").style.display = "none";
     document.getElementById("list_wrapper").style.display = "block";
     document.getElementById("download_button").style.display = "flex";
-    document.getElementById("main_content").style.height = "calc(100vh - 81px)";
+    document.getElementById("main_content").style.minHeight = "calc(100vh - 81px)";
 }
 
 function closeListView() {
     document.getElementById("drop_zone_wrapper").style.display = "block";
     document.getElementById("list_wrapper").style.display = "none";
     document.getElementById("download_button").style.display = "none";
-    document.getElementById("main_content").style.height = "100%";
+    document.getElementById("main_content").style.minHeight = "100%";
     documents = [];
 }
