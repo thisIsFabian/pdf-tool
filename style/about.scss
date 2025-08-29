@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin: 100px 12% 0 12%;
-    column-gap: 50px;
+    column-gap: 85px;
 }
 
 .about_card {
@@ -11,10 +11,10 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    border: 1px solid var(--border-color);
+    //border: 1px solid #e3e5e9;
     border-radius: 24px;
     padding: 38px;
-    box-shadow: 0 1px 2px 0 var(--tw-shadow-color,#0000000d);
+    //box-shadow: 0 1px 2px 0 var(--tw-shadow-color,#0000000d);
 }
 
 .about_card h2 {
@@ -24,9 +24,10 @@
 }
 
 .about_card svg {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     color: #fff;
+    stroke-width: 1.8px;
 }
 
 .about_card a {
@@ -40,8 +41,8 @@
     align-items: center;
     border-radius: 999px;
     background-color: var(--accent-color);
-    height: 48px;
-    width: 48px;
+    height: 58px;
+    width: 58px;
 }
 
 
@@ -53,17 +54,17 @@
 
 }
 
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 1200px) {
 
     .about_cards_wrapper {
         grid-template-columns: 1fr;
         row-gap: 50px;
-        margin: 100px 20% 50px 20%;
+        margin: 100px 25% 50px 25%;
     }
 
 }
 
-@media only screen and (max-width: 440px) {
+@media only screen and (max-width: 600px) {
 
     .about_cards_wrapper {
         margin: 100px 10% 50px 10%;
