@@ -226,8 +226,7 @@ $list_item_border_radius: 12px;
 }
 
 #add_file_button {
-    //position: relative;
-    width: 200px;
+    max-width: 200px;
     background: white;
     margin: 12px auto 0 auto;
     padding: 15px;
@@ -293,10 +292,50 @@ footer {
 }
 
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 1050px) {
 
-.list_item .pages_input {
-    width: 60px;
+    #list_wrapper {
+        width: 85%;
+    }
+
+    #drop_zone_wrapper svg {
+        width: 520px;
+        aspect-ratio: 3/1;
+    }
+
+    #drop_zone_wrapper rect {
+        rx: 5px;
+        ry: 15px;
+    }
+
+    footer {
+        text-align: center;
+    }
+
 }
+
+@media only screen and (max-width: 680px) {
+
+    #drop_zone_wrapper svg {
+        width: 240px;
+        aspect-ratio: 1/2;
+    }
+
+    #drop_zone_wrapper rect {
+        rx: 10px;
+        ry: 5px;
+    }
+
+}
+
+@media only screen and (max-width: 550px) {
+
+    .list_item .pages_input {
+        width: 60px;
+    }
+
+    header nav {
+        margin-left: 42px;
+    }
 
 }

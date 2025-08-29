@@ -43,3 +43,30 @@
     height: 48px;
     width: 48px;
 }
+
+
+@media only screen and (max-width: 1450px) {
+
+    .about_cards_wrapper {
+        margin: 100px 50px 0 50px;
+    }
+
+}
+
+@media only screen and (max-width: 1050px) {
+
+    .about_cards_wrapper {
+        grid-template-columns: 1fr;
+        row-gap: 50px;
+        margin: 100px 20% 50px 20%;
+    }
+
+}
+
+@media only screen and (max-width: 440px) {
+
+    .about_cards_wrapper {
+        margin: 100px 10% 50px 10%;
+    }
+
+}
