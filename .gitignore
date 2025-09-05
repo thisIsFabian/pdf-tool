@@ -1,3 +1,4 @@
 .vscode
 
 res/**/*.afdesign
+*.txt

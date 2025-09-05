@@ -15,38 +15,67 @@
     <header>
         <div class="logo">pdf-tool</div>
         <nav>
-            <a href="">Home</a>
-            <a href="about.html">About</a>
+            <a tabindex="0" id="home_nav">Home</a>
+            <a tabindex="0" id="about_nav">About</a>
         </nav>
     </header>
 
     <main id="main_content">
 
-        <div id="drop_zone_wrapper">
-            <svg viewBox='0 0 100 100' preserveAspectRatio='none'>
-                <rect x="4" y="4" width="92" height="92" rx="5" ry="20" vector-effect='non-scaling-stroke'></rect>
-            </svg>
-            <div id="drop_zone_content">
-                <img src="res/images/documents_icon.svg" alt="documents icon">
-                Click or drag files here
+        <div id="merge_pdf_container">
+            <div id="drop_zone_wrapper">
+                <svg viewBox='0 0 100 100' preserveAspectRatio='none'>
+                    <rect x="4" y="4" width="92" height="92" rx="5" ry="20" vector-effect='non-scaling-stroke'></rect>
+                </svg>
+                <div id="drop_zone_content">
+                    <img src="res/images/documents_icon.svg" alt="documents icon">
+                    Click or drag files here
+                </div>
+                <input id="file_input" type="file" accept="application/pdf" multiple title="">
             </div>
-            <input id="file_input" type="file" accept="application/pdf" multiple title="">
+
+            <div id="list_wrapper">
+                <div id="document_list" class="list js-list">
+
+                </div>
+                <div id="add_file_button" title="Add file" tabindex="0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+                    Add file
+                </div>
+            </div>
+
+            <button id="download_button" title="Download file">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
+                Download
+            </button>
         </div>
 
-        <div id="list_wrapper">
-            <div id="document_list" class="list js-list">
-
+        <div id="about_container">
+            <div class="about_cards_wrapper">
+            <div class="about_card">
+                <div class="card_icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg></div>
+                <h2>Known Limitations</h2>
+                <div>
+                    When combining multiple PDF files the internal links (to different pages of the PDF) of the appended files will break.
+                </div>
             </div>
-            <div id="add_file_button" title="Add file" tabindex="0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
-                Add file
+            <div class="about_card">
+                <div class="card_icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                <h2>Privacy</h2>
+                <div>
+                    Your files will never leave your device and you have unlimited usage of this tool for free since I don't have to run a server.
+                    After the page loaded you can disable your internet connection and everything will still work. Additionally this project is <a href="https://github.com/thisIsFabian/pdf-tool" target="_blank">open source</a>.
+                </div>
+            </div>
+            <div class="about_card">
+                <div class="card_icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg></div>
+                <h2>Technology</h2>
+                <div>
+                    This website uses an actively maintained fork of the <a href="https://github.com/cantoo-scribe/pdf-lib" target="_blank">pdf-lib</a> library for handling PDF files.
+                </div>
             </div>
         </div>
-
-        <button id="download_button" title="Download file">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
-            Download
-        </button>
+        </div>
 
     </main>
 

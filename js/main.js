@@ -1,6 +1,7 @@
 import {PDFDocument} from "https://cdn.jsdelivr.net/npm/@cantoo/pdf-lib@2.4.2/+esm";
 import "./draggable_list.js";
 import {documents} from "./upload.js";
+import "./menu.js";
 
 
 async function extractPDFpages() {
