@@ -9,9 +9,10 @@ let drop_zone = document.getElementById("main_content");
 drop_zone.addEventListener('dragover', e => {
     e.preventDefault();
     drop_zone.getElementsByTagName("rect")[0].style.stroke = "var(--accent-color)";
+    document.getElementById("add_file_indicator").style.opacity = 1;
 });
 drop_zone.addEventListener('dragleave', () => {
-    drop_zone.getElementsByTagName("rect")[0].style.stroke = "var(--stroke-color)";
+    resetDragoverStyling(false);
 });
 drop_zone.addEventListener("drop", loadFilesFromDropEvent);
 
@@ -22,6 +23,19 @@ function clickFileUploadInput() {
     document.getElementById("file_input").click();
 }
 
+function resetDragoverStyling(flushCss) {
+    drop_zone.getElementsByTagName("rect")[0].style.stroke = "var(--stroke-color)";
+
+    let add_file_indicator = document.getElementById("add_file_indicator");
+    let transition_before = add_file_indicator.style.transition;
+    add_file_indicator.style.transition = "none";
+    add_file_indicator.style.opacity = 0;
+    if(flushCss) {
+        //ensures that the opacity wont be animated although the transition style property is set right after:
+        add_file_indicator.offsetHeight; 
+    }
+    add_file_indicator.style.transition = transition_before;
+}
 
 function readerPromise(file) {
     return new Promise((resolve, reject) => {
@@ -76,7 +90,7 @@ function loadFilesFromInput(e) {
 async function loadFilesFromDropEvent(e) {
 
     e.preventDefault();
-    drop_zone.getElementsByTagName("rect")[0].style.stroke = "var(--stroke-color)";
+    resetDragoverStyling(true);
 
     let files = e.dataTransfer.files;
 

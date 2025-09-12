@@ -257,6 +257,20 @@ $list_item_border_radius: 12px;
     transition: 80ms transform ease-in-out;
 }
 
+#add_file_indicator {
+    opacity: 0;
+    width: 80%;
+    margin: 0 auto;
+    height: 3px;
+    background-color: var(--accent-color);
+    transform: translateY(6px);
+    border-radius: 99px;
+}
+
+#add_file_indicator.transition {
+    transition: 80ms opacity ease-in-out;
+}
+
 #download_button {
     display: none;
     align-items: center;
