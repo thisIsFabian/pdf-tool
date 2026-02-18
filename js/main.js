@@ -12,7 +12,8 @@ async function extractPDFpages() {
     if(list_items.length == 0) return;
 
     let first_item = list_items[0];
-    let newPDF = documents[first_item.dataset.index];
+    let firstDoc = await documents[first_item.dataset.index].save();
+    let newPDF = await PDFDocument.load(firstDoc); //copy the document
 
     // remove pages from the first document in the list that should not be included
     let input = first_item.getElementsByClassName("pages_input")[0].value;
