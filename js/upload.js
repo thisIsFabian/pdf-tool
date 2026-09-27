@@ -81,6 +81,7 @@ function loadFilesFromInput(e) {
                     //TODO: user feedback
                 }
             }
+            updateAllItemsList();
         }
 
     });
@@ -117,6 +118,7 @@ async function loadFilesFromDropEvent(e) {
 
     if(loadSuccess) {
         openListView();
+        updateAllItemsList();
     }
 
 }
